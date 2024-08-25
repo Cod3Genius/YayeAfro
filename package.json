@@ -1,56 +1,44 @@
 {
-  "name": "astrorante",
+  "name": "primer-blog",
   "type": "module",
-  "version": "0.0.3",
+  "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro check && astro build",
-    "check": "astro check",
-    "build:nocheck": "astro build",
+    "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro",
-    "pull:components": "npx storyblok pull-components --space SPACE_ID",
-    "generate:types": "npx storyblok generate-typescript-typedefs --sourceFilePaths ./components.SPACE_ID.json --destinationFilePath ./component-types-sb.d.ts",
-    "upgrade": "npx npm-check-updates -u && npm install"
+    "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/check": "^0.9.3",
-    "@astrojs/netlify": "^5.5.1",
-    "@astrojs/sitemap": "^3.1.6",
+    "@astrojs/react": "^3.3.0",
+    "@astrojs/sitemap": "^3.1.4",
     "@astrojs/tailwind": "^5.1.0",
-    "@astrojs/ts-plugin": "^1.10.1",
-    "@astrojs/vercel": "^7.8.0",
-    "@astrojs/vue": "^4.5.0",
-    "@fontsource-variable/readex-pro": "^5.0.14",
-    "@nanostores/vue": "^0.10.0",
-    "@storyblok/astro": "^5.0.1",
-    "@tailwindcss/container-queries": "^0.1.1",
-    "@tailwindcss/nesting": "^0.0.0-insiders.565cd3e",
-    "@vueuse/components": "^11.0.1",
-    "@vueuse/core": "^11.0.1",
-    "astro": "^4.14.5",
-    "astro-icon": "^1.1.1",
-    "astro-seo": "^0.8.4",
-    "class-variance-authority": "^0.7.0",
-    "clsx": "^2.1.1",
-    "lucide-vue-next": "^0.435.0",
-    "nanostores": "^0.11.2",
-    "photoswipe": "^5.4.4",
-    "radix-vue": "^1.9.4",
-    "storyblok-js-client": "^6.8.4",
-    "tailwind-merge": "^2.5.2",
-    "tailwindcss": "^3.4.10",
-    "tailwindcss-animate": "^1.0.7",
-    "typescript": "^5.5.4",
-    "vaul-vue": "^0.2.0",
-    "vite": "^5.4.2",
-    "vue": "^3.4.38"
+    "astro": "^4.6.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "tailwindcss": "^3.4.3"
   },
-  "devDependencies": {
-    "@vitejs/plugin-basic-ssl": "^1.1.0",
-    "prettier": "^3.3.3",
-    "prettier-plugin-astro": "^0.14.1",
-    "prettier-plugin-tailwindcss": "^0.6.6"
-  }
+  "description": "![Portada](image-1.png)",
+  "main": "index.astro",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SofiDevO/portfolio-astrosofidev-garrux.git"
+  },
+  "keywords": [
+    "astro",
+    "sofidev",
+    "frontend",
+    "portfolio",
+    "javascript",
+    "portafolio",
+    "css",
+    "tailwind"
+  ],
+  "author": "SofiDev / Garrux",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SofiDevO/portfolio-astrosofidev-garrux/issues"
+  },
+  "homepage": "https://github.com/SofiDevO/portfolio-astrosofidev-garrux#readme"
 }

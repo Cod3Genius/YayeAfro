@@ -1,107 +1,151 @@
-# Astrorante | Astro + Storyblok CMS
+### start using this template by running:
+ `npm create astro@latest -- --template SofiDevO/portfolio-sofidev-garrux`
+# Portfolio Template with Astro
 
-[![License: CC BY-ND 4.0](https://img.shields.io/badge/License-CC_BY--ND_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nd/4.0/)
+Welcome to the Portfolio Template built with Astro! This responsive template allows you to showcase all your projects with an amazing UI. Below you'll find instructions on how to use this template, including how to add new portfolio items, main dependencies, and examples of usage.
 
+![Portada](image-1.png)
+## Table of Contents
 
+1. [Usage](#usage)
+2. [Portfolio Data Format](#portfolio-data-format)
+3. [Adding Icons with Iconify](#adding-icons-with-iconify)
+4. [Technologies Used](#technologies-used)
+5. [Figma Design](#figma-design)
+6. [Author and License](#author-and-license)
+7. [Bugs and Issues](#bugs-and-issues)
+8. [Homepage](#homepage)
 
-## 📝 1. Setting up the .env file
+## Usage
 
-rename the `env.txt` to `.env` and fill in your details
+To add new elements to your portfolio, you need to add them in `/src/data/portfolioData.js`.
 
+## Portfolio Data Format
+
+The data for your portfolio should follow this format:
+
+```js
+/**
+ * @typedef PortfolioData
+ * @property {string} imgSrc - URL of the image
+ * @property {string} title - Title of the card
+ * @property {string[]} skills - Array of your skills, e.g., ['React', 'CSS', 'JavaScript']
+ * @property {string} description - Description of the card
+ * @property {string} demoURL - URL of a demo page
+ * @property {string} repoURL - URL of the repository, e.g., https://github.com/user/repo
+ * @property {string} anim - Animation that will play when the card loads, e.g., fade-up, fade-right, fade-left, fade-down
+ * @property {number} averageBrightness - Brightness level of the card's background color, e.g., 0.1
+ */
+
+/**
+ * @type {PortfolioData[]}
+ */
+export const portfolioData = [
+    {
+        imgSrc: 'https://dt2sdf0db8zob.cloudfront.net/wp-content/uploads/2021/06/copy-of-the-6-best-restaurant-website-templates-1.png',
+        title: 'Restaurant',
+        skills: ['React', 'StyledComponents'],
+        description: 'Laboris ex laboris mollit esse fugiat aute cillum nostrud enim dolor sit. Reprehenderit et non nulla irure aute nostrud commodo aute.',
+        demoURL: '',
+        repoURL: '',
+        anim: 'fade-right',
+    },
+    {
+        imgSrc: 'https://fiverr-res.cloudinary.com/images/q_auto,f_auto/gigs/299377097/original/7eb7dcebe244fcf5ad75d92b0969fc116946bd57/create-professional-amd-responsive-wordpress-website.jpg',
+        title: 'E-commerce',
+        skills: ['JavaScript', 'Bootstrap'],
+        description: 'Laboris ex laboris mollit esse fugiat aute cillum nostrud enim dolor sit. Reprehenderit et non nulla irure aute nostrud commodo aute.',
+        demoURL: '',
+        repoURL: '',
+        anim: 'fade-up',
+        averageBrightness: 0.1,
+    },
+    // Add more portfolio items here
+];
+
+const skillIcons = {
+    JavaScript: 'skill-icons:javascript',
+    React: 'skill-icons:react-dark',
+    Astro: 'skill-icons:astro',
+    CSS: 'skill-icons:css',
+    Sass: 'skill-icons:sass',
+    StyledComponents: 'skill-icons:styledcomponents',
+    Bootstrap: 'skill-icons:bootstrap',
+    Tailwind: 'skill-icons:tailwindcss-dark',
+};
+
+/**
+ * @description Maps portfolioData to include skill icons
+ */
+export const getPortfolioData = portfolioData.map((item) => ({
+    ...item,
+    skills: item.skills.map((skill) => skillIcons[skill]),
+}));
 ```
-STORYBLOK_PREVIEW_TOKEN=XXX
-STORYBLOK_PERSONAL_TOKEN=XXX
-STORYBLOK_SPACE_ID=000000
-LOCALE=en-US
-CURRENCY=USD
-SITE_LANG=en
+
+This data is then passed to the portfolio component as props.
+
+## Adding Icons with Iconify
+
+We use Iconify for icons. To add new icons, use the `icon` attribute.
+
+### Example
+
+To use a React icon:
+
+```html
+<iconify-icon icon="logos:react" width="27" height="27"></iconify-icon>
 ```
 
-Also add this to your netlify/vercel deploy settings.
+In `data.js`, specify the icon identifier like this:
 
-
-### 🧰 2. Install dependencies
-
-```bash
-npm install
+```js
+{
+    title: "React",
+    link: "https://reactjs.org/",
+    icon: "logos:react"
+}
 ```
 
-### 🛠️ 3. Start Development server
+### Adding the Iconify Script
 
-```bash
-npm run dev
+Add the Iconify script to the `<head>` section of your project:
+
+```html
+<head>
+    <script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"></script>
+</head>
 ```
 
-### 🔄 4. Sync your Storyblok Space
+Once this script is included, you can use any Iconify icon by specifying its identifier.
 
-open `https://localhost:4321/setup`
+## Technologies Used
 
-And sync your Datasources, Components, and stories. it is best to first delete before syncing.
+This template leverages several modern technologies to create a highly responsive and visually appealing portfolio:
 
-![Astrorante](https://astrorante.unfolding.io/screenshots/sync.png)
+- **Astro**: A modern static site builder that allows you to use your favorite frameworks such as React, Vue, and Svelte. It optimizes for performance by shipping less JavaScript.
+- **React**: A JavaScript library for building user interfaces, which allows for the creation of reusable components.
+- **Tailwind CSS**: A utility-first CSS framework that enables you to design directly in your markup, providing flexibility and control over your styling.
+- **Styled Components**: A library for React and React Native that allows you to use component-level styles in your application. It utilizes tagged template literals to style components.
+- **Iconify**: A comprehensive library for icons that provides access to thousands of icons from different collections, all accessible via a single syntax.
 
-### ⚙️ 5. Add your site to the astro.config and set your adapter (vercel or netlify)
+## Figma Design
 
+You can view and edit the design of this template on Figma. Here is the [Figma design link](https://www.figma.com/design/15EteAKw8d0QCNCucw5lft/mi-primer-blog?node-id=200-643&t=hbUqn1hqSfLcfI92-0).
 
-```javascript
+## Author and License
 
-export default defineConfig({
-	site: 'https://your-website.com',
-	output: "hybrid",
-  	adapter: vercel(), // vercel() or netlify()
+- **Author**: SofiDev / Garrux
+- **License**: MIT
 
-    ....
+## Bugs and Issues
 
-```
+If you encounter any bugs or have issues, please report them [here](https://github.com/SofiDevO/portfolio-astrosofidev-garrux/issues).
 
+## Homepage
 
-## 🛸 Commands
+For more information and detailed documentation, visit the [homepage](https://github.com/SofiDevO/portfolio-astrosofidev-garrux#readme).
 
-All commands are run from the root of the project, from a terminal:
+---
 
-| Command                    | Action                                           |
-| -------------------------- | ------------------------------------------------ |
-| `npm install`              | Installs dependencies                            |
-| `npm run dev`              | Starts local dev server at `localhost:4321`      |
-| `npm run build`            | Build your production site to `./dist/`          |
-| `npm run preview`          | Preview your build locally, before deploying     |
-| `npm run astro ...`        | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help`  | Get help using the Astro CL                      |
-
-## 👀 Want to learn more about Astro?
-
-Check out [Astro documentation](https://docs.astro.build) or jump into Astro's [Discord server](https://astro.build/chat).
-
-## 📚 Tech Stack
-
-Astro, Storyblok CMS, Vue, TailwindCSS
-
-## 🛟 Support
-
-If you encounter any issues or bugs, we encourage you to open an issue in the repository. To help us quickly address the problem, please provide detailed information about the bug and steps to reproduce it.
-
-For those seeking priority assistance, we offer premium support services. Feel free to reach out to us by email at [hello@unfolding.io.](mailto:hello@unfolding.io.) We're here to help!
-
-
-## ☕️ Want to Caffeinate your Developer? 
-
-By [caffeinating](https://www.buymeacoffee.com/unfolding.io) your developer, you're not just getting the best out of them; you're also ensuring a cheerful and energetic work environment.😊
-
-[![buymeacoffee](https://starfunnel.unfolding.io/screenshots/bymeacoffee.webp)](https://www.buymeacoffee.com/unfolding.io)
-
-
-## 📸 Screenshots
-
-![Astrorante](https://astrorante.unfolding.io/screenshots/Screenshot_0.png)
-![Astrorante](https://astrorante.unfolding.io/screenshots/Screenshot_1.png)
-![Astrorante](https://astrorante.unfolding.io/screenshots/Screenshot_2.png)
-![Astrorante](https://astrorante.unfolding.io/screenshots/Screenshot_3.png)
-![Astrorante](https://astrorante.unfolding.io/screenshots/Screenshot_4.png)
-![Astrorante](https://astrorante.unfolding.io/screenshots/Screenshot_5.png)
-![Astrorante](https://astrorante.unfolding.io/screenshots/sync.png)
-
-
-
-
-
-
+Enjoy building your portfolio! If you have any questions or run into any issues, feel free to reach out.

@@ -1,22 +1,11 @@
 ---
-import { getSettings } from "@util/storyblokApi";
-import Layout from "@layouts/Layout.astro";
+import Boton from "../components/atoms/Boton.astro";
+import Layout from "../layouts/Layout.astro";
 
-const settings = await getSettings("default");
 
-const meta = {
-  title: "404",
-  description: "page not found",
-  og_image: "",
-  image: "",
-};
 ---
 
-<Layout meta={meta} {settings}>
-  <div class="grid min-h-svh w-full place-items-center">
-    <div class="richtext text-center">
-      <h1>404</h1>
-      <p>Page Not Found</p>
-    </div>
-  </div>
+<Layout title="Pagina no encontrada">
+        <h1 class="text-xl">Pagina no encontrada</h1>
+        <Boton texto="Regresar" href="/"/>
 </Layout>
