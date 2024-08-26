@@ -14,14 +14,14 @@
  */
 export const portafolioData = [
 	{
-		imgSrc: '../../../public/img/cliente1.jpg',
+		imgSrc: '../../../public/img/cliente1.webp',
 		title: 'cliente1',
 		descripcion:
 			'rizos definidos',
 		anim: 'fade-right',
 	},
 	{
-		imgSrc: '../../../public/img/cliente2.jpg',
+		imgSrc: '../../../public/img/cliente2.webp',
 		title: 'Stiven',
 		descripcion:
 			' definicion de rizos caballero.',

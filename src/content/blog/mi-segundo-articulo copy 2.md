@@ -3,12 +3,12 @@ title: "Kanechom Lacrou"
 description: "Oleo de coco crema para peinar"
 pubDate: 'Apr 14 2024'
 updatedDate: 'Apr 24 2024'
-heroImage: "../img/lacrou.jpg"
+heroImage: "../img/lacrou.webp"
 ---
 
 ## Kanechom lacrou: crema para peinar -  definicion. volumen, suavidad y brillo.
 
-![javascript image](/img/lacrou.jpg)
+![javascript image](/img/lacrou.webp)
 
 
 
